@@ -1,0 +1,22 @@
+%mainClassp-m-0 {
+    padding: 0px;
+    margin: 0px;
+}
+@mixin flex ($dir, $justify, $align) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin position ($position, $top, $left, $right, $bottom) {
+    position: $position;
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+}
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}

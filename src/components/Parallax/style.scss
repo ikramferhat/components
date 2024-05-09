@@ -1,0 +1,44 @@
+@use "../../SCSS/functions";
+
+.main-para {
+    min-height: 1400px;
+}
+.paper-txt {
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    @include functions.flex(row, space-between, center);
+    background: rgb(0, 0, 0);
+    color: white;
+}
+.md-paper {
+    height: 100px;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.5);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    @include functions.flex(row, center, center);
+}
+.parallax-video { 
+    min-height: 500px;
+    @include functions.flex(center, center, center);
+    video { 
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+.parallax-img {
+    width: 500px;
+    background-image: url("https://img.freepik.com/free-vector/river-flowing-night-sahara-desert-vector-cartoon-mountain-illustration-hot-sandy-dunes-landscape-full-moon-light-plants-growing-near-water-bank-glowworms-flaring-air-starry-sky_107791-21428.jpg?w=900&t=st=1715186835~exp=1715187435~hmac=76b962690ac1a96e7dce3a34240778d51376a04a6376f0fe2903ae7ddcd13dee");
+    min-height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

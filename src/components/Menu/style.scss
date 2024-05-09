@@ -1,0 +1,122 @@
+@mixin flex ($dir, $justify, $align) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+%transition {
+  transition: all 0.4s ease;
+}
+$colors: #0866ff, #000, #00acee, #0088cc , #0e76a8;
+
+.menu-container {
+  &, .menu {
+    &, a {
+      @include flex(row, center, center);
+    }
+  }
+  .menu {
+    &, a {
+      @extend %transition;
+    }
+    position: relative;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 15px;
+    background-color: rgb(187, 187, 187);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    a {
+      background-color: rgb(233, 240, 240);
+      width: 50px;
+      height: 50px;
+      font-size: 25px;
+      border-radius: 50%;
+      margin: 0 5px;
+      @for $i from 1 through length($colors) {
+        $color: nth($colors, $i);
+        &:nth-child(#{$i}) {
+          color: $color;
+        }
+      }
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-left: 10px solid rgb(187, 187, 187);
+      right: -20px;
+      top: 50%;
+      margin-top: -10px;
+    }
+  }
+  .share {
+    all: unset;
+    width: 50px;
+    height: 50px;
+    @include flex(row, center, center);
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgb(187, 187, 187);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    i {
+      transition: transform 0.4s ease;
+      font-size: 20px;
+      color: white;
+      &.open {
+        transform: rotate(90deg);
+      }
+      &.close {
+        transform: rotate(-360deg);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+  /*
+  .hamburger{
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    @include flex(column, space-around, center);
+    div {
+      width: 30px;
+      height: 3px;
+      transform-origin: 1px;
+      background-color: black;
+      @extend %transition;
+    }
+    &.active {
+      div {
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform: translateX(20px);
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+*/

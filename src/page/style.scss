@@ -1,0 +1,60 @@
+@mixin flex ($dir, $justify, $align) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+$index : 1;
+button {
+    all: unset;
+    @include flex(row, center, center);
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 0 25px;
+    i {
+        transition: all 0.5s ease;
+    }
+    &.btn-#{$index} {
+       background-color: rgb(180, 176, 209);
+       i {
+          margin-left: 5px;
+       }   
+       &:hover {
+          i {
+            transform: translateX(50%);
+          }   
+       }
+    }
+    &.btn-#{$index + 1} {
+        background-color: rgb(118, 113, 163);
+        i {
+          margin-left: 5px;
+          width: 25px;
+          transform: translateX(-20px);
+        }   
+        &:hover {
+          i {
+            transform:    scale(2,1);
+          }   
+        }
+    }
+    &.btn-#{$index + 2} {
+       background-color: rgb(162, 154, 235);
+       i {
+          margin-left: 5px;
+          transform: translate(0, 0) rotate(-45deg);
+       }
+       &:hover {
+        i {
+          transform: translate(5px, -5px) rotate(-45deg);
+        }   
+      }
+    }
+}

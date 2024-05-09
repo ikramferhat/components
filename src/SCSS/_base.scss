@@ -1,0 +1,16 @@
+body {
+    background-color: var(--color-white);
+    overflow-x: hidden;
+    @extend %mainClassp-m-0;
+    .App {
+      padding-top: 50px;
+      height: 100vh;
+      h1, h2, h3, h4, h5, h6, p {
+        @extend %mainClassp-m-0;
+      }
+      a {
+        text-decoration: none;
+        color: unset;
+      }
+    }
+}
