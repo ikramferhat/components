@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Parallax, Search } from '../components';
+import { Menu, Parallax, Search, Button } from '../components';
 
 export  function SearchPage(){
   return (
@@ -8,6 +8,13 @@ export  function SearchPage(){
       <div style={{ marginTop: 250 }} >
         <Search overlay bColor="#0d66d0" />
       </div>
+    </div>
+  )
+}
+export function ButtonPage(){
+  return (
+    <div>
+     <Button />
     </div>
   )
 }
